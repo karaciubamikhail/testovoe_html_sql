@@ -1,0 +1,43 @@
+CREATE TABLE containers (
+    id          integer,
+    number          integer,
+    type text,
+    length          integer,
+    width integer,
+    heath integer,
+    weight integer,
+    empty boolean,
+    date date
+);
+CREATE TABLE operation (
+    id          integer,
+    idconteiner          integer,
+    dateoperationnew date
+,
+     dateoperationold          date
+,
+   type text,
+    fio text ,
+    mesto text,
+);
+
+SELECT id,
+    number AS "number",
+    type as "type",
+    length AS "parametrs.length",
+    width AS "parametrs.width",
+    heath AS "parametrs.heath",
+    weight AS "parametrs.weight",
+    empty AS "parametrs.empty",
+    date AS "date",
+FROM containers
+FOR JSON PATH;
+
+SELECT idconteiner,
+    dateoperationnew AS "dateoperationnew",
+    dateoperationold as "dateoperationold",
+    type AS "type",
+    fio AS "fio",
+    mesto AS "mesto",
+FROM operation
+FOR JSON PATH;
